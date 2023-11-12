@@ -1,0 +1,12 @@
+[
+  {
+    "$type": "Tfl.Api.Presentation.Entities.RoadCorridor, Tfl.Api.Presentation.Entities",
+    "id": "a205",
+    "displayName": "South Circular (A205)",
+    "statusSeverity": "Good",
+    "statusSeverityDescription": "No Exceptional Delays",
+    "bounds": "[[-0.27716,51.43917],[0.06343,51.49446]]",
+    "envelope": "[[-0.27716,51.43917],[-0.27716,51.49446],[0.06343,51.49446],[0.06343,51.43917],[-0.27716,51.43917]]",
+    "url": "/Road/a205"
+  }
+]

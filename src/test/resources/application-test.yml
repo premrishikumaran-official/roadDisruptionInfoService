@@ -1,0 +1,13 @@
+infoServiceProvider:
+  url: http://localhost:${wiremock.server.port}
+  appId: road-app
+  appKey: xyz
+
+feign:
+  client:
+    config:
+      feignName:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
+

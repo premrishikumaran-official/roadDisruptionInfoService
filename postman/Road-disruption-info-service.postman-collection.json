@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "e1fb941e-aa9b-4f9e-a030-67a474f493f1",
+		"name": "Road disruption info service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Road A2 Disruption info service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/road/A205/severity-status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"road",
+						"A205",
+						"severity-status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Road A2XY Not found Disruption info service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/road/A2XY/severity-status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"road",
+						"A2XY",
+						"severity-status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Road A205 Disruption info Service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/road/A205/severity-status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"road",
+						"A205",
+						"severity-status"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

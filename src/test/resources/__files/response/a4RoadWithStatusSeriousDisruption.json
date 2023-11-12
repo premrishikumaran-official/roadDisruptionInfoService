@@ -1,0 +1,11 @@
+[
+  {
+    "$type": "Tfl.Api.Presentation.Entities.RoadCorridor, Tfl.Api.Presentation.Entities",
+    "displayName": "A4",
+    "statusSeverity": "Serious",
+    "statusSeverityDescription": "Serious",
+    "bounds": "[[-0.50067,51.44671],[-0.15236,51.50294]]",
+    "envelope": "[[-0.50067,51.44671],[-0.50067,51.50294],[-0.15236,51.50294],[-0.15236,51.44671],[-0.50067,51.44671]]",
+    "url": "/Road/A4"
+  }
+]

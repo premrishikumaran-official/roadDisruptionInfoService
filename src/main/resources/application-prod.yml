@@ -1,0 +1,13 @@
+infoServiceProvider:
+  url: https://api.tfl.gov.uk
+  appId: road-app
+  appKey: <tfl dev key> #ToDo for prod
+
+feign:
+  client:
+    config:
+      feignName:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
+

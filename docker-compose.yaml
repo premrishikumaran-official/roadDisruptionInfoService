@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  api:
+    container_name: api
+    image: road-disruption-info-service-img
+    environment:
+      APP_KEY_VAR: 0ffb3ad4665e46009326fbfb1b808cb3
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+
+    restart: on-failure
