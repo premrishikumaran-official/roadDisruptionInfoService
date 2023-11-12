@@ -3,7 +3,6 @@ package org.intrv.tfl.roaddisruptioninfoservice.controller;
 import com.github.tomakehurst.wiremock.http.Fault;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-
 import org.intrv.tfl.roaddisruptioninfoservice.exception.ErrorResponse;
 import org.intrv.tfl.roaddisruptioninfoservice.model.RoadStatus;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,7 +15,6 @@ import org.springframework.cloud.contract.wiremock.AutoConfigureWireMock;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static io.restassured.RestAssured.given;

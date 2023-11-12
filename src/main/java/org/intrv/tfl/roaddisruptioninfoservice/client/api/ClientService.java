@@ -4,7 +4,6 @@ import org.intrv.tfl.roaddisruptioninfoservice.client.config.FeignClientConfigur
 import org.intrv.tfl.roaddisruptioninfoservice.client.fallback.ClientServiceFallBack;
 import org.intrv.tfl.roaddisruptioninfoservice.model.RoadSeverityStatus;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -15,6 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface ClientService {
 
     @GetMapping(path = "/Road/{roadId}?app_id=${infoServiceProvider.appId}&app_key=${infoServiceProvider.appKey}")
-    ResponseEntity<RoadSeverityStatus[]> getSeverityByRoad(@PathVariable String roadId);
+    RoadSeverityStatus[] getSeverityByRoad(@PathVariable String roadId);
 
 }

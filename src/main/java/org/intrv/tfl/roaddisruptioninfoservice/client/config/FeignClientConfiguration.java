@@ -4,7 +4,6 @@ import feign.codec.ErrorDecoder;
 import feign.okhttp.OkHttpClient;
 import org.intrv.tfl.roaddisruptioninfoservice.client.exception.ServiceErrorDecoder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 
 public class FeignClientConfiguration {

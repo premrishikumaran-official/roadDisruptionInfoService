@@ -2,6 +2,7 @@ package org.intrv.tfl.roaddisruptioninfoservice.service;
 
 
 import org.intrv.tfl.roaddisruptioninfoservice.client.api.ClientService;
+import org.intrv.tfl.roaddisruptioninfoservice.client.exception.NotFoundException;
 import org.intrv.tfl.roaddisruptioninfoservice.exception.UnKnowError;
 import org.intrv.tfl.roaddisruptioninfoservice.model.RoadSeverityStatus;
 import org.intrv.tfl.roaddisruptioninfoservice.model.RoadStatus;
@@ -12,7 +13,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -97,10 +97,10 @@ class RoadServiceImplTest {
         String roadId = "AA";
 
         when(clientService.getSeverityByRoad(roadId)).
-                thenReturn(ResponseEntity.ok().build());
+                thenReturn(null);
 
         //then
-        assertThrows(UnKnowError.class, () -> {
+        assertThrows(NotFoundException.class, () -> {
             //when
             roadService.getSeverityStatus(roadId);
         });
@@ -117,7 +117,7 @@ class RoadServiceImplTest {
                 RoadSeverityStatus.builder().build()};
 
         when(clientService.getSeverityByRoad(roadId)).
-                thenReturn(ResponseEntity.ok(roadSeverityStatuses));
+                thenReturn(roadSeverityStatuses);
 
         //then
         assertThrows(UnKnowError.class, () -> {
@@ -127,7 +127,7 @@ class RoadServiceImplTest {
 
     }
 
-    private ResponseEntity<RoadSeverityStatus[]> createRoadSeverityResponse(String roadId,
+    private RoadSeverityStatus[] createRoadSeverityResponse(String roadId,
                                                                             String severityStatus,
                                                                             String desc) {
         RoadSeverityStatus roadSeverityStatus = RoadSeverityStatus.builder()
@@ -135,7 +135,7 @@ class RoadServiceImplTest {
                 .statusSeverityDescription(desc)
                 .displayName(roadId).build();
 
-        return ResponseEntity.ok(new RoadSeverityStatus[]{roadSeverityStatus});
+        return new RoadSeverityStatus[]{roadSeverityStatus};
     }
 
 
