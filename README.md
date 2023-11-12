@@ -73,30 +73,7 @@ Task is to design and implement a system that provides the following user experi
 
 ## How to Start
 
-Option 1 (Docker)
-
-    Preferred way to start the application is **DOCKER** if you have docker desktop installed
-
-    make sure your docker desktop is running
-
-    Update application-prod.yml infoServiceProvider.appKey with 'your <tfl dev key>'
-
-    In the root folder of the project, run  `docker-compose up --build` to pull the 3rd party required images and start all the services
-
-
-    For Starting api service
-
-    `docker-compose up `
-
-    #### For 'cleanup' -careful it will remove all unsed images
-
-    `docker-compose down`
-
-    `docker rmi $(docker images -a -q) `
-
-    `docker image prune -a`
-
-Option 2 (Intellij IDE) (Require Java 17)
+Option 1 (Intellij IDE) (Require Java 17)
 
     Clone the repo to your local ide from git hub provided
 
@@ -110,6 +87,30 @@ Option 2 (Intellij IDE) (Require Java 17)
        via command line
 
        1, curl http://localhost:8080/v1/road/a2/severity-status 
+
+Option 2 (Docker) 
+
+    Preferred way to start the application is **DOCKER** if you have docker desktop installed
+
+    make sure your docker desktop is running
+
+    Update application-prod.yml infoServiceProvider.appKey with 'your <tfl dev key>'
+
+    In the root folder of the project, run  `docker-compose up --build` to pull the 3rd party required images and start all the services
+
+    For Starting api service
+
+    `docker-compose up `
+
+    #### For 'cleanup' -careful it will remove all unsed images
+
+    `docker-compose down`
+
+    `docker rmi $(docker images -a -q) `
+
+    `docker image prune -a`
+
+
 
 ## Postman script
 import file [postman](postman/Road-disruption-info-service.postman-collection.json) to postman app
