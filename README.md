@@ -116,12 +116,12 @@ import file [postman](postman/Road-disruption-info-service.postman-collection.js
     
     3 Test scanerios provided 
 
-Integration Test
+## Integration Test
     RoadStatusControllerIT.java -Integration test can be run via ide .
     
     Select and "run  RoadStatusControllerIT" on ide
 
-Junit Test
+## Junit Test
     RoadServiceImplTest.java Junit Test can be run via ide .
   
     Select and "run  RoadServiceImplTest" on ide
