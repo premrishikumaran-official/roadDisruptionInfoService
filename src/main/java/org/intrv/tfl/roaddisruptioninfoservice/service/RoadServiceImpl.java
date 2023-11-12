@@ -1,6 +1,6 @@
 package org.intrv.tfl.roaddisruptioninfoservice.service;
 
-import org.intrv.tfl.roaddisruptioninfoservice.client.config.ClientService;
+import org.intrv.tfl.roaddisruptioninfoservice.client.api.ClientService;
 import org.intrv.tfl.roaddisruptioninfoservice.exception.UnKnowError;
 import org.intrv.tfl.roaddisruptioninfoservice.model.RoadSeverityStatus;
 import org.intrv.tfl.roaddisruptioninfoservice.model.RoadStatus;
