@@ -4,6 +4,8 @@ infoServiceProvider:
   appKey: "ToUpdate"
 
 feign:
+  hystrix:
+    enabled: true
   client:
     config:
       feignName:
