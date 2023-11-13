@@ -4,10 +4,12 @@ infoServiceProvider:
   appKey: <tfl dev key> #ToDo for prod
 
 feign:
+  hystrix:
+    enabled: true
   client:
     config:
       feignName:
         connectTimeout: 5000
         readTimeout: 5000
-        loggerLevel: full
+        loggerLevel: ERROR
 

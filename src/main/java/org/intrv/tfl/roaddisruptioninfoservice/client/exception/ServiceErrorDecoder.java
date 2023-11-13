@@ -24,16 +24,11 @@ public class ServiceErrorDecoder implements ErrorDecoder {
         final String messageStr = message == null ? "" : message.getMessage();
         switch (response.status()) {
             case 400:
+            case 401:
                 return new RuntimeException(messageStr.isEmpty()
                         ? "Bad Request"
                         : messageStr
                 );
-            case 401:
-                return new RetryableException(response.status(),
-                        response.reason(),
-                        response.request().httpMethod(),
-                        null,
-                        response.request());
             case 404:
                 return new NotFoundException(messageStr.isEmpty()
                         ? "Not found"

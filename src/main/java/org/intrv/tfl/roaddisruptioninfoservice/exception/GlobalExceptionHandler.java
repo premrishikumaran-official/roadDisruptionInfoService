@@ -40,7 +40,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return buildErrorResponse(exception, "Unknown error occurred", HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 
-    @ExceptionHandler(UnKnowError.class)
+    @ExceptionHandler(NonProcessableContentError.class)
     @ResponseStatus(HttpStatus.EXPECTATION_FAILED)
     public ResponseEntity<Object> handleUnknownError(Exception exception, WebRequest request) {
         log.error("Unknown error occurred", exception);

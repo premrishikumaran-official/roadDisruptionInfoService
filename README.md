@@ -79,9 +79,10 @@ Option 1 (Intellij IDE) (Require Java 17)
 
     run below maven commands to build and bootstrap the api
   
-      mvn clean compile test verify package
-
-      mvn spring-boot:run -Dspring-boot.run.arguments="--infoServiceProvider.appKey=<your-dev-app-key>"
+        mvn clean compile test verify package
+        
+        Running prod profile
+        mvn spring-boot:run -Dspring-boot.run.arguments="--spring.profiles.active=prod infoServiceProvider.appKey=<replace-dev-app-key>"
 
     For Testing
        via command line
@@ -104,7 +105,7 @@ Option 2 (Docker)
 
     #### For 'cleanup' -careful it will remove all unsed images
 
-    `docker-compose down`
+    `docker-compose down` in a different terminal
 
     `docker rmi $(docker images -a -q) `
 

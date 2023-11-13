@@ -3,8 +3,8 @@ package org.intrv.tfl.roaddisruptioninfoservice.service;
 
 import org.intrv.tfl.roaddisruptioninfoservice.client.api.ClientService;
 import org.intrv.tfl.roaddisruptioninfoservice.client.exception.NotFoundException;
-import org.intrv.tfl.roaddisruptioninfoservice.exception.UnKnowError;
-import org.intrv.tfl.roaddisruptioninfoservice.model.RoadSeverityStatus;
+import org.intrv.tfl.roaddisruptioninfoservice.exception.NonProcessableContentError;
+import org.intrv.tfl.roaddisruptioninfoservice.client.model.RoadSeverityStatusResponse;
 import org.intrv.tfl.roaddisruptioninfoservice.model.RoadStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -112,30 +112,30 @@ class RoadServiceImplTest {
     public void whenApiReturnAmbiguousList_throwsError() {
         //given
         String roadId = "AA";
-        RoadSeverityStatus[] roadSeverityStatuses =new RoadSeverityStatus[]{
-                RoadSeverityStatus.builder().build(),
-                RoadSeverityStatus.builder().build()};
+        RoadSeverityStatusResponse[] roadSeverityStatusResponses =new RoadSeverityStatusResponse[]{
+                RoadSeverityStatusResponse.builder().build(),
+                RoadSeverityStatusResponse.builder().build()};
 
         when(clientService.getSeverityByRoad(roadId)).
-                thenReturn(roadSeverityStatuses);
+                thenReturn(roadSeverityStatusResponses);
 
         //then
-        assertThrows(UnKnowError.class, () -> {
+        assertThrows(NonProcessableContentError.class, () -> {
             //when
             roadService.getSeverityStatus(roadId);
         });
 
     }
 
-    private RoadSeverityStatus[] createRoadSeverityResponse(String roadId,
-                                                                            String severityStatus,
-                                                                            String desc) {
-        RoadSeverityStatus roadSeverityStatus = RoadSeverityStatus.builder()
+    private RoadSeverityStatusResponse[] createRoadSeverityResponse(String roadId,
+                                                                    String severityStatus,
+                                                                    String desc) {
+        RoadSeverityStatusResponse roadSeverityStatusResponse = RoadSeverityStatusResponse.builder()
                 .statusSeverity(severityStatus)
                 .statusSeverityDescription(desc)
                 .displayName(roadId).build();
 
-        return new RoadSeverityStatus[]{roadSeverityStatus};
+        return new RoadSeverityStatusResponse[]{roadSeverityStatusResponse};
     }
 
 

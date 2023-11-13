@@ -1,4 +1,4 @@
-package org.intrv.tfl.roaddisruptioninfoservice.model;
+package org.intrv.tfl.roaddisruptioninfoservice.client.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RoadSeverityStatus {
+public class RoadSeverityStatusResponse {
     public String id;
     public String displayName;
     public String statusSeverity;
