@@ -155,6 +155,25 @@ class RoadStatusControllerIT {
 
     }
 
+    @Test
+    @DisplayName("When there is a gateway timeout, retry 5 times  with 1 sec interval " +
+                                                "  and then throw internal server error")
+    public void whenGatewayTimeoutErrorFor_thenRetry5Times_andThen500() {
+
+          ErrorResponse response = given()
+                  .when()
+                  .get("/v1/road/retry/severity-status")
+                  .then()
+                  .contentType(ContentType.JSON)
+                  .statusCode(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                  .extract()
+                  .body().as(ErrorResponse.class);
+
+          assertNotNull(response);
+
+
+    }
+
 
     //Stub creation
 
@@ -197,6 +216,11 @@ class RoadStatusControllerIT {
         stubFor(get(urlEqualTo("/Road/internalError?app_id=road-app&app_key=xyz"))
                 .willReturn(aResponse()
                         .withStatus(500)));
+
+        stubFor(get(urlEqualTo("/Road/retry?app_id=road-app&app_key=xyz"))
+                .willReturn(aResponse()
+                        .withStatus(504)));
+
 
     }
 

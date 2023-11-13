@@ -4,10 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import feign.Response;
 import feign.RetryableException;
 import feign.codec.ErrorDecoder;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.io.InputStream;
 
+@Slf4j
 public class ServiceErrorDecoder implements ErrorDecoder {
 
     private final ErrorDecoder defaultErrorDecoder = new Default();
@@ -19,7 +21,13 @@ public class ServiceErrorDecoder implements ErrorDecoder {
             ObjectMapper mapper = new ObjectMapper();
             message = mapper.readValue(bodyIs, ExceptionMessage.class);
         } catch (IOException e) {
-            return new Exception(e.getMessage());
+            log.error("retrying IOException --");
+            //Gateway timeout retry for 5 times with 1 second interval
+            return new RetryableException(response.status(),
+                    response.reason(),
+                    response.request().httpMethod(),
+                    null,
+                    response.request());
         }
         final String messageStr = message == null ? "" : message.getMessage();
         switch (response.status()) {
