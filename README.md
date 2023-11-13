@@ -118,6 +118,29 @@ import file [postman](postman/Road-disruption-info-service.postman-collection.js
     
     3 Test scanerios provided 
 
+Valid Road
+
+curl --location --request GET 'http://localhost:8080/v1/road/A2/severity-status'
+```json
+  {
+    "displayName": "A2",
+    "statusSeverity": "Good",
+    "statusSeverityDescription": "No Exceptional Delays"
+  }
+
+```
+
+Invalid Road 
+
+curl --location --request GET 'http://localhost:8080/v1/road/A2XY/severity-status'
+```json
+  {
+    "status": 404,
+    "message": "The following road id is not recognised: A2XY"
+  }
+```
+
+
 ## Integration Test
     RoadStatusControllerIT.java -Integration test can be run via ide .
     
